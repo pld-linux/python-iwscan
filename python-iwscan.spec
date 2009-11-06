@@ -1,6 +1,6 @@
 %define 	module	iwscan
 %define		snap	20090609
-%define		rel		1
+%define		rel		2
 Summary:	A Python extension for iwscan access
 Name:		python-%{module}
 Version:	0.7.0
@@ -10,18 +10,18 @@ Group:		Development/Languages/Python
 Source0:	http://mirror.leaseweb.com/archlinux/other/python-iwscan/%{name}-%{snap}.tar.gz
 # Source0-md5:	30fbe8ad3b07e67c1c35db2de16077d8
 URL:		http://projects.otaku42.de/browser/python-iwscan
+BuildRequires:	libiw-devel
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
-Requires:	python
-Requires:	python-modules
-Requires:	wireless-tools
+Requires:	python-libs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A Python interface to iwlist, using the iwlib library This module
-makes the iwlib (Linux Wireless Extensions) functions available in
-Python for wireless network scanning.
+A Python interface to iwlist, using the iwlib library.
+
+This module makes the iwlib (Linux Wireless Extensions) functions
+available in Python for wireless network scanning.
 
 %prep
 %setup -q -n %{name}
