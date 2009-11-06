@@ -1,11 +1,13 @@
 %define 	module	iwscan
+%define		snap	20090609
+%define		rel		1
 Summary:	A Python extension for iwscan access
 Name:		python-%{module}
-Version:	20090609
-Release:	1
+Version:	0.7.0
+Release:	0.%{snap}.%{rel}
 License:	GPL v2
 Group:		Development/Languages/Python
-Source0:	http://mirror.leaseweb.com/archlinux/other/python-iwscan/python-iwscan-%{version}.tar.gz
+Source0:	http://mirror.leaseweb.com/archlinux/other/python-iwscan/%{name}-%{snap}.tar.gz
 # Source0-md5:	30fbe8ad3b07e67c1c35db2de16077d8
 URL:		http://projects.otaku42.de/browser/python-iwscan
 BuildRequires:	python-devel
@@ -43,7 +45,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{py_sitedir}/*.so
+%doc iwlist.py
+%attr(755,root,root) %{py_sitedir}/%{module}.so
 %if "%{py_ver}" > "2.4"
-%{py_sitedir}/iwscan-*.egg-info
+%{py_sitedir}/%{module}-*.egg-info
 %endif
