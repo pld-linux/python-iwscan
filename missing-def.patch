@@ -1,0 +1,13 @@
+--- python-iwscan/pyiwscan.c~	2009-06-09 19:10:43.000000000 +0200
++++ python-iwscan/pyiwscan.c	2015-11-21 17:55:45.248606885 +0100
+@@ -803,7 +803,9 @@
+ 	char buff[1024];
+ 	FILE*     fh;
+ 	PyObject* ifnames = PyList_New(0);
+-
++#ifndef PROC_NET_WIRELESS
++#define PROC_NET_WIRELESS "/proc/net/wireless"
++#endif
+ 	fh = fopen(PROC_NET_WIRELESS, "r");
+ 
+ 	if (fh != NULL) {

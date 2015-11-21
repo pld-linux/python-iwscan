@@ -1,6 +1,6 @@
 %define 	module	iwscan
 %define		snap	20090609
-%define		rel		3
+%define		rel	4
 Summary:	A Python extension for iwscan access
 Name:		python-%{module}
 Version:	0.7.0
@@ -9,6 +9,7 @@ License:	GPL v2
 Group:		Development/Languages/Python
 Source0:	http://mirror.leaseweb.com/archlinux/other/python-iwscan/%{name}-%{snap}.tar.gz
 # Source0-md5:	30fbe8ad3b07e67c1c35db2de16077d8
+Patch0:		missing-def.patch
 URL:		http://projects.otaku42.de/browser/python-iwscan
 BuildRequires:	libiw-devel
 BuildRequires:	python-devel
@@ -25,6 +26,7 @@ available in Python for wireless network scanning.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 %build
 export CFLAGS="%{rpmcflags}"
