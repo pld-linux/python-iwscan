@@ -1,6 +1,6 @@
 %define 	module	iwscan
 %define		snap	20090609
-%define		rel	4
+%define		rel	5
 Summary:	A Python extension for iwscan access
 Name:		python-%{module}
 Version:	0.7.0
