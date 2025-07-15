@@ -26,7 +26,7 @@ available in Python for wireless network scanning.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %py_build
